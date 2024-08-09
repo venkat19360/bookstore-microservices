@@ -27,6 +27,11 @@ public class UserController {
   @Autowired
   private UserService userService;
 
+  @GetMapping("/test/user")
+  public ResponseEntity<String> testUserController() {
+    return ResponseEntity.ok("Hey, I am UserController");
+  }
+
   @PostMapping("/user")
   @PreAuthorize("hasAuthority('ADMIN_USER')")
   public ResponseEntity<?> createUser(@RequestBody @Valid CreateUserRequest createUserRequest) {

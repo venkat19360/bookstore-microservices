@@ -20,6 +20,11 @@ public class CartController {
     @Autowired
     private CartService cartService;
 
+    @GetMapping("/test/cart")
+    public ResponseEntity<String> testUserRoleController() {
+        return ResponseEntity.ok("Hey, I am CartController");
+    }
+
     @PostMapping("/cart")
     @PreAuthorize("hasAuthority('STANDARD_USER') or hasAuthority('ADMIN_USER')" )
     public ResponseEntity<CreateCartResponse> createCart() {

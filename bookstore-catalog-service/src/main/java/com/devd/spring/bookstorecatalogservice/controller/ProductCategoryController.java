@@ -36,6 +36,11 @@ public class ProductCategoryController {
     @Autowired
     ProductCategoryService productCategoryService;
 
+    @GetMapping("/test/product-category")
+    public ResponseEntity<String> testUserRoleController() {
+        return ResponseEntity.ok("Hey, I am ProductCategoryController");
+    }
+
     @PostMapping("/productCategory")
     @PreAuthorize("hasAuthority('ADMIN_USER')")
     public ResponseEntity<?> createProductCategory(@RequestBody @Valid CreateProductCategoryRequest createProductCategoryRequest) {

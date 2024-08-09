@@ -21,6 +21,11 @@ public class BillingAddressController {
     
     @Autowired
     BillingAddressService billingAddressService;
+
+    @GetMapping("/test/billing-address")
+    public ResponseEntity<String> testUserRoleController() {
+        return ResponseEntity.ok("Hey, I am BillingAddressController");
+    }
     
     @PostMapping("/billingAddress")
     public ResponseEntity<Object> createBillingAddress(@RequestBody CreateBillingAddressRequest createBillingAddressRequest) {

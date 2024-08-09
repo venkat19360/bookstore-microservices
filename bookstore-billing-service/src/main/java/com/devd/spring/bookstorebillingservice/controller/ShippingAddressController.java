@@ -20,6 +20,11 @@ public class ShippingAddressController {
     
     @Autowired
     ShippingAddressService shippingAddressService;
+
+    @GetMapping("/test/shipping-address")
+    public ResponseEntity<String> testUserRoleController() {
+        return ResponseEntity.ok("Hey, I am ShippingAddressController");
+    }
     
     @PostMapping("/shippingAddress")
     public ResponseEntity<Object> createShippingAddress(@RequestBody CreateShippingAddressRequest createShippingAddressRequest) {

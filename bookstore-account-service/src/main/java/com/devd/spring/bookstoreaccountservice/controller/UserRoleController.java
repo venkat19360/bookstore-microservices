@@ -5,10 +5,8 @@ import com.devd.spring.bookstoreaccountservice.web.MapRoleToUsersRequest;
 import com.devd.spring.bookstoreaccountservice.web.MapUserToRolesRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author: Devaraj Reddy, Date : 2019-06-30
@@ -18,6 +16,11 @@ public class UserRoleController {
 
   @Autowired
   UserRoleService userRoleService;
+
+  @GetMapping("/test/user-role")
+  public ResponseEntity<String> testUserRoleController() {
+    return ResponseEntity.ok("Hey, I am UserRoleController");
+  }
 
   @PostMapping("/user/{userNameOrEmail}/roles")
   public void mapUserToRoles(@PathVariable("userNameOrEmail") String userNameOrEmail,

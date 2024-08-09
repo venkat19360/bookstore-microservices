@@ -24,6 +24,11 @@ public class RoleController {
   @Autowired
   private RoleService roleService;
 
+  @GetMapping("/test/role")
+  public ResponseEntity<String> testRoleController() {
+    return ResponseEntity.ok("Hey, I am RoleController");
+  }
+
   @PostMapping("/role")
   @PreAuthorize("hasAuthority('ADMIN_USER')")
   public ResponseEntity<?> createRole(@RequestBody @Valid CreateRoleRequest createRoleRequest) {
